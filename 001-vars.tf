@@ -1,20 +1,20 @@
 variable "EnvType" {
-  type = string
+  type    = string
   default = "dev"
 }
 
 variable "REGION" {
-  type = string
+  type    = string
   default = "ap-northeast-2"
 }
 
 variable "ZONE1" {
-  type = string
+  type    = string
   default = "ap-northeast-2a"
 }
 
 variable "ZONE2" {
-  type = string
+  type    = string
   default = "ap-northeast-2b"
 }
 
