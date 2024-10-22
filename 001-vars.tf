@@ -3,6 +3,10 @@ variable "EnvType" {
   default = "dev"
 }
 
+variable "project_name" {
+  type    = string
+  default = "vprofile"
+}
 variable "REGION" {
   type    = string
   default = "ap-northeast-2"
