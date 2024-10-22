@@ -6,7 +6,8 @@ resource "aws_subnet" "public-1" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name        = var.project_name
+    Name        = "public-subnet-1"
+    Project     = var.project_name
     Environment = var.EnvType
   }
 }
@@ -18,7 +19,8 @@ resource "aws_subnet" "public-2" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name        = var.project_name
+    Name        = "public-subnet-2"
+    Project     = var.project_name
     Environment = var.EnvType
   }
 }
@@ -30,7 +32,8 @@ resource "aws_subnet" "app-1" {
   availability_zone = var.ZONE1
 
   tags = {
-    Name        = var.project_name
+    Name        = "app-subnet-1"
+    Project     = var.project_name
     Environment = var.EnvType
   }
 }
@@ -41,7 +44,8 @@ resource "aws_subnet" "app-2" {
   availability_zone = var.ZONE2
 
   tags = {
-    Name        = var.project_name
+    Name        = "app-subnet-2"
+    Project     = var.project_name
     Environment = var.EnvType
   }
 }
@@ -53,7 +57,8 @@ resource "aws_subnet" "backend-1" {
   availability_zone = var.ZONE1
 
   tags = {
-    Name        = var.project_name
+    Name        = "backend-subnet-1"
+    Project     = var.project_name
     Environment = var.EnvType
   }
 }
@@ -64,7 +69,8 @@ resource "aws_subnet" "backend-2" {
   availability_zone = var.ZONE2
 
   tags = {
-    Name        = var.project_name
+    Name        = "backend-subnet-2"
+    Project     = var.project_name
     Environment = var.EnvType
   }
 }

@@ -8,13 +8,14 @@ resource "aws_route_table" "public-RT" {
   }
 
   tags = {
-    Name        = var.project_name
+    Name        = "public-RT"
+    Project     = var.project_name
     Environment = var.EnvType
   }
 }
 
 # Route table for application subnet.
-resource "aws_route_table" "app-RT" {
+resource "aws_route_table" "app-RT1" {
   vpc_id = aws_vpc.main.id
 
   route {
@@ -23,13 +24,13 @@ resource "aws_route_table" "app-RT" {
   }
 
   tags = {
-    Name        = var.project_name
+    Name        = "app-RT1"
+    Project     = var.project_name
     Environment = var.EnvType
   }
 }
 
-# Route table for backend subnet.
-resource "aws_route_table" "backend-RT" {
+resource "aws_route_table" "app-RT2" {
   vpc_id = aws_vpc.main.id
 
   route {
@@ -38,7 +39,39 @@ resource "aws_route_table" "backend-RT" {
   }
 
   tags = {
-    Name        = var.project_name
+    Name        = "app-RT2"
+    Project     = var.project_name
+    Environment = var.EnvType
+  }
+}
+
+# Route table for backend subnet.
+resource "aws_route_table" "backend-RT1" {
+  vpc_id = aws_vpc.main.id
+
+  route {
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.nat1.id
+  }
+
+  tags = {
+    Name        = "backend-RT1"
+    Project     = var.project_name
+    Environment = var.EnvType
+  }
+}
+
+resource "aws_route_table" "backend-RT2" {
+  vpc_id = aws_vpc.main.id
+
+  route {
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.nat2.id
+  }
+
+  tags = {
+    Name        = "backend-RT2"
+    Project     = var.project_name
     Environment = var.EnvType
   }
 }

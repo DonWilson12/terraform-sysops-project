@@ -4,7 +4,8 @@ resource "aws_vpc" "main" {
   enable_dns_hostnames = true
   enable_dns_support   = true
   tags = {
-    Name        = var.project_name
+    Name        = "vprofile-vpc"
+    Project     = var.project_name
     Environment = var.EnvType
   }
 }
